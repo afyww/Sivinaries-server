@@ -7,8 +7,7 @@
             <img class="text-center mx-auto h-fit w-10" src="{{ asset('assets/img/logo.png') }}" alt="">
         </div>
         <div>
-            <h1 class="font-bold text-center text-base">PT.Custompedia</h1>
-            <h1 class="font-bold text-center text-base">Creative Group</h1>
+            <h1 class="font-bold text-center text-base">Sivinaries</h1>
         </div>
     </a>
     <hr class="h-px bg-transparent bg-gradient-to-r from-transparent via-black to-transparent" />
@@ -53,13 +52,13 @@
             <hr class="h-px bg-transparent bg-gradient-to-r from-transparent via-black to-transparent" />
             <li class="mt-2 ml-10">
                 <a class="py-2 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
-                    href="{{ route('project') }}">
+                    href="">
                     <span class="ml-1 font-semibold">Projects</span>
                 </a>
             </li>
             <li class="mt-2 ml-10">
                 <a class="py-2 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
-                    href="{{ route('kategori') }}">
+                    href="">
                     <span class="ml-1 font-semibold">Categories</span>
                 </a>
             </li>
@@ -113,19 +112,19 @@
             <hr class="h-px bg-transparent bg-gradient-to-r from-transparent via-black to-transparent" />
             <li class="mt-2 ml-10">
                 <a class="py-2 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
-                    href="{{ route('post') }}">
+                    href="">
                     <span class="ml-1 font-semibold">Posts</span>
                 </a>
             </li>
             <li class="mt-2 ml-10">
                 <a class="py-2 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
-                    href="{{ route('category') }}">
+                    href="">
                     <span class="ml-1 font-semibold">Categories</span>
                 </a>
             </li>
             <li class="mt-2 mb-2">
                 <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
-                    href="{{ route('setting') }}">
+                    href="">
                     <div class="flex h-8 w-8 bg-blue-400 rounded-xl items-center justify-center text-center">
                         <svg width="25" height="25" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -145,14 +144,12 @@
                 </a>
             </li>
             <hr class="h-px bg-transparent bg-gradient-to-r from-transparent via-black to-transparent" />
-            @if (auth()->user()->level == 'admin')
                 <li class="mt-2 ml-10">
                     <a class="py-2 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
-                        href="{{ route('user') }}">
+                        href="">
                         <span class="ml-1 font-semibold">Users</span>
                     </a>
                 </li>
-            @endif
             <li class="mt-2 ml-10 mb-2">
                 <a class="py-2 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
                     href="https://custompedia.vercel.app/" target="blank">

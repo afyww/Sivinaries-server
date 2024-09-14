@@ -10,12 +10,8 @@
     <div class="grid xl:grid-cols-2 my-auto bg-white rounded-xl p-6 xl:p-24 mx-5 xl:mx-10">
         <div class="hidden xl:flex bg-gray-100 rounded-xl">
             <div class="mx-auto my-auto text-center space-y-10">
-                <div class="flex justify-center">
-                    <img src="{{ asset('assets/img/logo.png') }}" alt="">
-                    <div class="my-auto font-extrabold text-3xl">
-                        <h1 class=" text-black">PT.Custompedia</h1>
-                        <h1 class=" text-black">Creative Group</h1>
-                    </div>
+                <div class="my-auto font-extrabold text-3xl">
+                    <h1 class=" text-black">Sivinaries</h1>
                 </div>
                 <div>
                     <h1 class="text-3xl font-extrabold text-black text-center">Content Management System</h1>
