@@ -33,16 +33,16 @@
                     </a>
                     <!-- card2 -->
                     <a href="">
-                        <div class="bg-yellow-500 p-8 rounded-lg shadow-xl">
+                        <div class="bg-green-500 p-8 rounded-lg shadow-xl">
                             <h1 class="text-2xl text-white font-bold"></h1>
-                            <h1 class="text-xl font-extrabold text-white text-right">Payment</h1>
+                            <h1 class="text-xl font-extrabold text-white text-right">Price</h1>
                         </div>
                     </a>
                     <!-- card2 -->
                     <a href="">
-                        <div class="bg-green-500 p-8 rounded-lg shadow-xl">
+                        <div class="bg-yellow-500 p-8 rounded-lg shadow-xl">
                             <h1 class="text-2xl text-white font-bold"></h1>
-                            <h1 class="text-xl font-extrabold text-white text-right">Users</h1>
+                            <h1 class="text-xl font-extrabold text-white text-right">Payment</h1>
                         </div>
                     </a>
                 </div>
