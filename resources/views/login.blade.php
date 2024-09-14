@@ -14,7 +14,7 @@
                     <h1 class=" text-black">Sivinaries</h1>
                 </div>
                 <div>
-                    <h1 class="text-3xl font-extrabold text-black text-center">Content Management System</h1>
+                    <h1 class="text-3xl font-extrabold text-black text-center">Project Management System</h1>
                 </div>
             </div>
         </div>

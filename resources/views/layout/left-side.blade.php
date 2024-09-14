@@ -8,6 +8,7 @@
         </div>
         <div>
             <h1 class="font-bold text-center text-base">Sivinaries</h1>
+            <h1 class="font-bold text-center text-base">Projects Management System</h1>
         </div>
     </a>
     <hr class="h-px bg-transparent bg-gradient-to-r from-transparent via-black to-transparent" />
@@ -16,7 +17,7 @@
             <li class="mt-5">
                 <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
                     href="{{ route('dashboard') }}">
-                    <div class="flex h-8 w-8 bg-blue-400 rounded-xl items-center justify-center text-center">
+                    <div class="flex h-8 w-8 bg-amber-400 rounded-xl items-center justify-center text-center">
                         <svg width="17" height="17" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -29,8 +30,8 @@
             </li>
             <li class="mt-2 mb-2">
                 <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
-                    href="{{ route('works') }}">
-                    <div class="flex h-8 w-8 bg-blue-400 rounded-xl items-center justify-center text-center">
+                    href="">
+                    <div class="flex h-8 w-8 bg-amber-400 rounded-xl items-center justify-center text-center">
                         <svg width="20" height="20" viewBox="0 0 512 512" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <title>project-new</title>
@@ -49,23 +50,54 @@
                     </div>
                 </a>
             </li>
-            <hr class="h-px bg-transparent bg-gradient-to-r from-transparent via-black to-transparent" />
-            <li class="mt-2 ml-10">
-                <a class="py-2 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
+            <li class="mt-2 mb-2">
+                <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
                     href="">
-                    <span class="ml-1 font-semibold">Projects</span>
-                </a>
-            </li>
-            <li class="mt-2 ml-10">
-                <a class="py-2 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
-                    href="">
-                    <span class="ml-1 font-semibold">Categories</span>
+                    <div class="flex h-8 w-8 bg-amber-400 rounded-xl items-center justify-center text-center">
+                        <svg width="20" height="20" viewBox="0 0 512 512" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>project-new</title>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Combined-Shape" fill="#000000" transform="translate(64.000000, 34.346667)">
+                                    <path
+                                        d="M192,-7.10542736e-15 L384,110.851252 L384,242.986 L341.333,242.986 L341.333,157.655 L213.333,231.555 L213.333,431.088 L192,443.405007 L0,332.553755 L0,110.851252 L192,-7.10542736e-15 Z M341.333333,264.32 L341.333,328.32 L405.333333,328.32 L405.333333,370.986667 L341.333,370.986 L341.333333,434.986667 L298.666667,434.986667 L298.666,370.986 L234.666667,370.986667 L234.666667,328.32 L298.666,328.32 L298.666667,264.32 L341.333333,264.32 Z M42.666,157.654 L42.6666667,307.920144 L170.666,381.82 L170.666,231.555 L42.666,157.654 Z M192,49.267223 L66.1333333,121.936377 L192,194.605531 L317.866667,121.936377 L192,49.267223 Z">
+
+                                    </path>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="ml-1 font-semibold">Task</span>
+                    </div>
                 </a>
             </li>
             <li class="mt-2 mb-2">
                 <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
-                    href="{{ route('content') }}">
-                    <div class="flex h-8 w-8 bg-blue-400 rounded-xl items-center justify-center text-center">
+                    href="">
+                    <div class="flex h-8 w-8 bg-amber-400 rounded-xl items-center justify-center text-center">
+                        <svg width="20" height="20" viewBox="0 0 512 512" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>project-new</title>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Combined-Shape" fill="#000000" transform="translate(64.000000, 34.346667)">
+                                    <path
+                                        d="M192,-7.10542736e-15 L384,110.851252 L384,242.986 L341.333,242.986 L341.333,157.655 L213.333,231.555 L213.333,431.088 L192,443.405007 L0,332.553755 L0,110.851252 L192,-7.10542736e-15 Z M341.333333,264.32 L341.333,328.32 L405.333333,328.32 L405.333333,370.986667 L341.333,370.986 L341.333333,434.986667 L298.666667,434.986667 L298.666,370.986 L234.666667,370.986667 L234.666667,328.32 L298.666,328.32 L298.666667,264.32 L341.333333,264.32 Z M42.666,157.654 L42.6666667,307.920144 L170.666,381.82 L170.666,231.555 L42.666,157.654 Z M192,49.267223 L66.1333333,121.936377 L192,194.605531 L317.866667,121.936377 L192,49.267223 Z">
+
+                                    </path>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="ml-1 font-semibold">Price</span>
+                    </div>
+                </a>
+            </li>
+            <li class="mt-2 mb-2">
+                <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
+                    href="">
+                    <div class="flex h-8 w-8 bg-amber-400 rounded-xl items-center justify-center text-center">
                         <svg width="15" height="15" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 
                             <defs>
@@ -105,27 +137,14 @@
                         </svg>
                     </div>
                     <div>
-                        <span class="ml-1 font-semibold">Blog</span>
+                        <span class="ml-1 font-semibold">Payment</span>
                     </div>
                 </a>
             </li>
-            <hr class="h-px bg-transparent bg-gradient-to-r from-transparent via-black to-transparent" />
-            <li class="mt-2 ml-10">
-                <a class="py-2 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
-                    href="">
-                    <span class="ml-1 font-semibold">Posts</span>
-                </a>
-            </li>
-            <li class="mt-2 ml-10">
-                <a class="py-2 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
-                    href="">
-                    <span class="ml-1 font-semibold">Categories</span>
-                </a>
-            </li>
-            <li class="mt-2 mb-2">
-                <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
-                    href="">
-                    <div class="flex h-8 w-8 bg-blue-400 rounded-xl items-center justify-center text-center">
+            <h1 class="mt-2 mb-2">
+                <div
+                    class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black">
+                    <div class="flex h-8 w-8 bg-amber-400 rounded-xl items-center justify-center text-center">
                         <svg width="25" height="25" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -141,15 +160,15 @@
                     <div>
                         <span class="ml-1 font-semibold">Settings</span>
                     </div>
+                </div>
+            </h1>
+            <hr class="h-px bg-transparent bg-gradient-to-r from-transparent via-black to-transparent" />
+            <li class="mt-2 ml-10">
+                <a class="py-2 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
+                    href="">
+                    <span class="ml-1 font-semibold">Users</span>
                 </a>
             </li>
-            <hr class="h-px bg-transparent bg-gradient-to-r from-transparent via-black to-transparent" />
-                <li class="mt-2 ml-10">
-                    <a class="py-2 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
-                        href="">
-                        <span class="ml-1 font-semibold">Users</span>
-                    </a>
-                </li>
             <li class="mt-2 ml-10 mb-2">
                 <a class="py-2 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
                     href="https://custompedia.vercel.app/" target="blank">
@@ -160,7 +179,7 @@
             <li class="mt-2">
                 <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
                     href="{{ route('logout') }}">
-                    <div class="flex h-8 w-8 bg-blue-400 rounded-xl items-center justify-center text-center">
+                    <div class="flex h-8 w-8 bg-amber-400 rounded-xl items-center justify-center text-center">
                         <svg width="12px" height="12px" viewBox="0 0 16 16" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <rect width="12" height="12" id="icon-bound" fill="none" />

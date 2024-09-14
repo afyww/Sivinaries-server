@@ -22,10 +22,6 @@ Route::put('/updateuser/{id}', [UserController::class, 'update'])->name('updateu
 Route::delete('/destroyuser/{id}', [UserController::class, 'destroy'])->name('destroyuser');
 //PAGES
 Route::get('/dashboard', [PagesController::class, 'dashboard'])->name('dashboard');
-Route::get('/content', [PagesController::class, 'content'])->name('content');
-Route::get('/works', [PagesController::class, 'works'])->name('works');
-Route::get('/setting', [PagesController::class, 'setting'])->name('setting');
-Route::get('/profil', [PagesController::class, 'profil'])->name('profil');
 Route::get('/search', [PagesController::class, 'search'])->name('search');
 //LOGOUT
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

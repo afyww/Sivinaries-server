@@ -16,19 +16,33 @@
         <!-- end Navbar -->
         <div class="p-6 space-y-2">
             <div class='w-full h-fit mx-auto'>
-                <div class="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 gap-4 p-2">
-                    <!-- card1 -->
-                    <a href="">
-                        <div class="bg-blue-500 p-8 rounded-lg shadow-xl">
-                            <h1 class="text-2xl text-white font-bold"></h1>
-                            <h1 class="text-xl font-extrabold text-white text-right">Posts</h1>
-                        </div>
-                    </a>
+                <div class="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-4 lg:grid-cols-4 gap-4 p-2">
                     <!-- card2 -->
                     <a href="">
                         <div class="bg-red-500 p-8 rounded-lg shadow-xl">
                             <h1 class="text-2xl text-white font-bold"></h1>
                             <h1 class="text-xl font-extrabold text-white text-right">Projects</h1>
+                        </div>
+                    </a>
+                    <!-- card1 -->
+                    <a href="">
+                        <div class="bg-blue-500 p-8 rounded-lg shadow-xl">
+                            <h1 class="text-2xl text-white font-bold"></h1>
+                            <h1 class="text-xl font-extrabold text-white text-right">Tasks</h1>
+                        </div>
+                    </a>
+                    <!-- card2 -->
+                    <a href="">
+                        <div class="bg-yellow-500 p-8 rounded-lg shadow-xl">
+                            <h1 class="text-2xl text-white font-bold"></h1>
+                            <h1 class="text-xl font-extrabold text-white text-right">Payment</h1>
+                        </div>
+                    </a>
+                    <!-- card2 -->
+                    <a href="">
+                        <div class="bg-green-500 p-8 rounded-lg shadow-xl">
+                            <h1 class="text-2xl text-white font-bold"></h1>
+                            <h1 class="text-xl font-extrabold text-white text-right">Users</h1>
                         </div>
                     </a>
                 </div>
@@ -58,4 +72,5 @@
 </body>
 @include('sweetalert::alert')
 @include('layout.script')
+
 </html>

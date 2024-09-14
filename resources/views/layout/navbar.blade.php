@@ -18,7 +18,7 @@
             </div>
             <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
                 <li class="flex items-center">
-                    <a href="{{ route('profil') }}"
+                    <a href=""
                         class="block px-0 py-2 font-semibold transition-all ease-nav-brand text-sm text-slate-500">
                         {{ auth()->user()->name }}
                         <i class="fa fa-user ml-2 sm:mr-1"></i>
