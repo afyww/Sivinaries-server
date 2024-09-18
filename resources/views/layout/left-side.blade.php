@@ -30,7 +30,7 @@
             </li>
             <li class="mt-2 mb-2">
                 <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
-                    href="">
+                    href="{{ route('project') }}">
                     <div class="flex h-8 w-8 bg-amber-400 rounded-xl items-center justify-center text-center">
                         <svg width="20" height="20" viewBox="0 0 512 512" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -68,7 +68,7 @@
                         </svg>
                     </div>
                     <div>
-                        <span class="ml-1 font-semibold">Task</span>
+                        <span class="ml-1 font-semibold">Price</span>
                     </div>
                 </a>
             </li>
@@ -90,7 +90,7 @@
                         </svg>
                     </div>
                     <div>
-                        <span class="ml-1 font-semibold">Price</span>
+                        <span class="ml-1 font-semibold">Task</span>
                     </div>
                 </a>
             </li>

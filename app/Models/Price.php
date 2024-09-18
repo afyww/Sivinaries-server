@@ -9,8 +9,9 @@ class Price extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'project_id',
         'service',
+        'user_id',
+        'project_id',
         'price',
     ];
 
@@ -18,5 +19,11 @@ class Price extends Model
     {
         return $this->belongsTo(Project::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 
 }

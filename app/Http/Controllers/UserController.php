@@ -11,11 +11,7 @@ class UserController extends Controller
     {
         $user = User::all();
 
-        if (request()->is('api/*')) {
-            return response()->json($user);
-        }
-
-        return view('user', compact('user'));
+        return view('user', ['user' => $user]);
     }
 
     public function create()
@@ -25,23 +21,25 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|unique:users|max:255',
             'password' => 'required|string|min:8|confirmed',
-            'level' => 'required|string|in:admin,writer',
+            'level' => 'required|string|in:admin,user',
         ]);
-
-        $user = new User();
-        $user->name = $validatedData['name'];
-        $user->email = $validatedData['email'];
-        $user->password = bcrypt($validatedData['password']);
-        $user->level = $validatedData['level'];
-        $user->save();
-
-        return redirect('/user')->with('success', 'User Berhasil Dibuat !');
+    
+        $data = [
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password')),
+            'level' => $request->input('level'),
+        ];
+    
+        User::create($data);
+    
+        return redirect()->route('user')->with('success', 'User Berhasil Dibuat !');
     }
-
+    
     public function edit($id)
     {
 
@@ -53,15 +51,22 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'category' => 'required',
+            'service' => 'required',
+            'user_id' => 'required',
+            'project_id' => 'required',
+            'price' => 'required',
         ]);
 
-        $userdata = $request->only(['category']);
+        $price = Price::findOrFail($id);
 
-        User::where('id', $id)->update($userdata);
+        $price->service = $request->input('service');
+        $price->user_id = $request->input('user_id');
+        $price->project_id = $request->input('project_id');
+        $price->price = $request->input('price');
 
-        return redirect(route('user'))->with('success', 'User Berhasil Diupdate !');
+        $price->save();
 
+        return redirect()->route('price')->with('success', 'Price Sukses Diupdate!');
     }
 
     public function destroy($id)

@@ -14,6 +14,7 @@ class Project extends Model
         'price',
         'start_date',
         'end_date',
+        'status',
     ];
 
     public function prices()
@@ -24,6 +25,11 @@ class Project extends Model
     public function payments()
     {
         return $this->hasMany(Payment::class);
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
     }
 
 }

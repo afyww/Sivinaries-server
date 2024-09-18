@@ -7,59 +7,75 @@ use Illuminate\Http\Request;
 
 class PriceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $price = Price::all();
+
+        return view('price', ['price' => $price]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('addprice');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'service' => 'required',
+            'user_id' => 'required',
+            'project_id' => 'required',
+            'price' => 'required',
+        ]);
+
+        $data = [
+            'service' => $request->input('service'),
+            'user_id' => $request->input('user_id'),
+            'project_id' => $request->input('project_id'),
+            'price' => $request->input('price'),
+        ];
+
+        Price::create($data);
+
+        return redirect()->route('price')->with('success', 'Price Sukses Dibuat!');
+
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Price $price)
+    public function edit($id)
     {
-        //
+        $price = Price::find($id);
+
+        return view('editprice', ['price' => $price]);
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Price $price)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'service' => 'required',
+            'user_id' => 'required',
+            'project_id' => 'required',
+            'price' => 'required',
+        ]);
+
+        $price = Price::findOrFail($id);
+
+        $price->service = $request->input('service');
+        $price->user_id = $request->input('user_id');
+        $price->project_id = $request->input('project_id');
+        $price->price = $request->input('price');
+
+        $price->save();
+
+        return redirect()->route('price')->with('success', 'Price Sukses Diupdate!');
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Price $price)
+    public function destroy($id)
     {
-        //
-    }
+        Price::destroy($id);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Price $price)
-    {
-        //
+        return redirect()->route('price')->with('success', 'Price Sukses Dihapus!');
+
     }
 }

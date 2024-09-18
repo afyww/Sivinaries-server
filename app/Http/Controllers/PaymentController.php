@@ -7,59 +7,81 @@ use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $payment = Payment::all();
+
+        return view('payment', ['payment' => $payment]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('addpayment');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'payment' => 'required',
+            'project_id' => 'required',
+            'prove' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $data = [
+            'payment' => $request->input('payment'),
+            'project_id' => $request->input('project_id'),
+        ];
+
+        if ($request->hasFile('prove')) {
+            $uploadedImage = $request->file('prove');
+            $imageName = time() . '_' . $uploadedImage->getClientOriginalName();
+            $imagePath = $uploadedImage->storeAs('public/prove', $imageName);
+            $data['prove'] = 'prove/' . $imageName;
+        }
+
+        Payment::create($data);
+
+        return redirect()->route('payment')->with('success', 'Payment Sukses Dibuat!');
+
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Payment $payment)
+    public function edit($id)
     {
-        //
+        $payment = Payment::find($id);
+
+        return view('editpayment', ['payment' => $payment]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Payment $payment)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'payment' => 'required',
+            'project_id' => 'required',
+            'prove' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $payment = Payment::findOrFail($id);
+
+        $payment->payment = $request->input('payment');
+        $payment->project_id = $request->input('project_id');
+
+        if ($request->hasFile('prove')) {
+            $imageName = time() . '_' . $request->file('prove')->getClientOriginalName();
+            $request->file('prove')->storeAs('public/prove', $imageName);
+            $payment->prove = 'prove/' . $imageName;
+        }
+
+        $payment->save();
+
+        return redirect()->route('payment')->with('success', 'Payment Sukses Diupdate!');
+    
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Payment $payment)
+    public function destroy($id)
     {
-        //
-    }
+        Payment::destroy($id);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Payment $payment)
-    {
-        //
+        return redirect()->route('payment')->with('success', 'Payment Sukses Dihapus!');
+
     }
 }

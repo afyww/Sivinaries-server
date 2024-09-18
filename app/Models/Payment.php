@@ -11,6 +11,7 @@ class Payment extends Model
     protected $fillable = [
         'payment',
         'project_id',
+        'price',
         'prove',
     ];
 

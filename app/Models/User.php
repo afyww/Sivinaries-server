@@ -30,4 +30,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Task::class);
     }
+
+    public function prices()
+    {
+        return $this->hasMany(Price::class);
+    }
 }

@@ -7,59 +7,83 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $task = Task::all();
+
+        return view('task', ['task' => $task]);
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('addtask');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'task' => 'required',
+            'user_id' => 'required',
+            'project_id' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'status' => 'required',
+        ]);
+
+        $data = [
+            'task' => $request->input('task'),
+            'user_id' => $request->input('project_id'),
+            'project_id' => $request->input('project_id'),
+            'start_date' => $request->input('start_date'),
+            'end_date' => $request->input('end_date'),
+            'status' => $request->input('status'),
+        ];
+
+        Task::create($data);
+
+        return redirect()->route('task')->with('success', 'Task Sukses Dibuat!');
+
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Task $task)
+    public function edit($id)
     {
-        //
+        $task = Task::find($id);
+
+        return view('edittask', ['task' => $task]);
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Task $task)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'task' => 'required',
+            'user_id' => 'required',
+            'project_id' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'status' => 'required',
+        ]);
+        $task = Task::findOrFail($id);
+
+        $task->service = $request->input('task');
+        $task->user_id = $request->input('user_id');
+        $task->project_id = $request->input('project_id');
+        $task->start_date = $request->input('start_date');
+        $task->end_date = $request->input('end_date');
+        $task->status = $request->input('status');
+
+        $task->save();
+
+        return redirect()->route('task')->with('success', 'Task Sukses Diupdate!');
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Task $task)
+    public function destroy($id)
     {
-        //
-    }
+        Task::destroy($id);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Task $task)
-    {
-        //
+        return redirect()->route('task')->with('success', 'Task Sukses Dihapus!');
+
     }
 }

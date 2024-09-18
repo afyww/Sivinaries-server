@@ -11,11 +11,19 @@ class Task extends Model
     protected $fillable = [
         'task',
         'user_id',
+        'project_id',
+        'start_date',
+        'end_date',
         'status',
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
     }
 }
