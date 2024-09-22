@@ -52,7 +52,7 @@
             </li>
             <li class="mt-2 mb-2">
                 <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
-                    href="">
+                    href="{{ route('price') }}">
                     <div class="flex h-8 w-8 bg-amber-400 rounded-xl items-center justify-center text-center">
                         <svg width="20" height="20" viewBox="0 0 512 512" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -74,7 +74,7 @@
             </li>
             <li class="mt-2 mb-2">
                 <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
-                    href="">
+                    href="{{ route('task') }}">
                     <div class="flex h-8 w-8 bg-amber-400 rounded-xl items-center justify-center text-center">
                         <svg width="20" height="20" viewBox="0 0 512 512" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -96,7 +96,7 @@
             </li>
             <li class="mt-2 mb-2">
                 <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
-                    href="">
+                    href="{{ route('payment') }}">
                     <div class="flex h-8 w-8 bg-amber-400 rounded-xl items-center justify-center text-center">
                         <svg width="15" height="15" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 
@@ -165,7 +165,7 @@
             <hr class="h-px bg-transparent bg-gradient-to-r from-transparent via-black to-transparent" />
             <li class="mt-2 ml-10">
                 <a class="py-2 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-black"
-                    href="">
+                    href="{{ route('user') }}">
                     <span class="ml-1 font-semibold">Users</span>
                 </a>
             </li>

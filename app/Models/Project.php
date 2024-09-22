@@ -12,6 +12,7 @@ class Project extends Model
         'project',
         'name',
         'price',
+        'payment',
         'start_date',
         'end_date',
         'status',
@@ -32,4 +33,13 @@ class Project extends Model
         return $this->hasMany(Task::class);
     }
 
+    public function getTotalPricesAttribute()
+    {
+        return $this->prices->sum('price');
+    }
+
+    public function getTotalPaymentsAttribute()
+    {
+        return $this->payments->sum('price');
+    }
 }

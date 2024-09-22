@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\User;
-use App\Models\Kategori;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TaskController;

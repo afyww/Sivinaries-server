@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Payment;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
@@ -16,7 +17,9 @@ class PaymentController extends Controller
 
     public function create()
     {
-        return view('addpayment');
+        $project = Project::all();
+
+        return view('addpayment', ['project' => $project]);
     }
 
     public function store(Request $request)
@@ -24,11 +27,13 @@ class PaymentController extends Controller
         $request->validate([
             'payment' => 'required',
             'project_id' => 'required',
-            'prove' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'price' => 'required',
+            'prove' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', 
         ]);
 
         $data = [
             'payment' => $request->input('payment'),
+            'price' => $request->input('price'),
             'project_id' => $request->input('project_id'),
         ];
 
@@ -57,12 +62,14 @@ class PaymentController extends Controller
         $request->validate([
             'payment' => 'required',
             'project_id' => 'required',
+            'price' => 'required',
             'prove' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $payment = Payment::findOrFail($id);
 
         $payment->payment = $request->input('payment');
+        $payment->price = $request->input('price');
         $payment->project_id = $request->input('project_id');
 
         if ($request->hasFile('prove')) {

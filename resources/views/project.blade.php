@@ -35,6 +35,7 @@
                                 <th>Start Date</th>
                                 <th>End Date</th>
                                 <th>Price</th>
+                                <th>Payment</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </thead>
@@ -42,14 +43,15 @@
                                 @php
                                     $no = 1;
                                 @endphp
-                                @foreach ($project as $item)
+                                @foreach ($projects as $item)
                                     <tr class="border-2">
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $item->project }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->start_date }}</td>
                                         <td>{{ $item->end_date }}</td>
-                                        <td>{{ $item->price }}</td>
+                                        <td>{{ $item->total_prices }}</td> 
+                                        <td>{{ $item->total_payments }}</td> 
                                         <td>{{ $item->status }}</td>
                                         <td class="flex gap-2">
                                             <div class="w-full">

@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('project');
             $table->string('name');
-            $table->decimal('price', 10, 2);
+            $table->decimal('price', 10, 2)->nullable();
+            $table->decimal('payment', 10, 2)->nullable();
             $table->date('start_date');
             $table->date('end_date');
             $table->string('status');

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Price;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class PriceController extends Controller
@@ -16,7 +18,9 @@ class PriceController extends Controller
 
     public function create()
     {
-        return view('addprice');
+        $user = User::all();
+        $project = Project::all();
+        return view('addprice', ['user' => $user, 'project' => $project]);
     }
 
     public function store(Request $request)

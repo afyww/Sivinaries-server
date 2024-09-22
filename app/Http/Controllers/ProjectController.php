@@ -9,9 +9,9 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $project = Project::all();
+        $projects = Project::all();
 
-        return view('project', ['project' => $project]);
+        return view('project', ['projects' => $projects]);
     }
 
     public function create()
@@ -24,7 +24,7 @@ class ProjectController extends Controller
         $request->validate([
             'project' => 'required',
             'name' => 'required',
-            'price' => 'required',
+            'price' => 'nullable',
             'start_date' => 'required',
             'end_date' => 'required',
             'status' => 'required',
@@ -49,7 +49,6 @@ class ProjectController extends Controller
         $project = Project::find($id);
 
         return view('editproject', ['project' => $project]);
-
     }
 
     public function update(Request $request, $id)
