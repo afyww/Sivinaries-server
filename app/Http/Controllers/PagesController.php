@@ -25,8 +25,8 @@ class PagesController extends Controller
         $total_payment = Payment::sum('price');
 
         //CHARTS PROJECT
-        $projects = Project::selectRaw("COUNT(*) as count, DATE_FORMAT(created_at, '%M') as month_name, MONTH(created_at) as month_number")
-            ->whereYear('created_at', date('Y'))
+        $projects = Project::selectRaw("COUNT(*) as count, DATE_FORMAT(start_date, '%M') as month_name, MONTH(start_date) as month_number")
+            ->whereYear('start_date', date('Y'))
             ->groupBy('month_number', 'month_name')
             ->orderBy('month_number')
             ->pluck('count', 'month_name');
