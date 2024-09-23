@@ -53,8 +53,10 @@ class TaskController extends Controller
     public function edit($id)
     {
         $task = Task::find($id);
+        $user = User::all();
+        $project = Project::all();
 
-        return view('edittask', ['task' => $task]);
+        return view('edittask', ['task' => $task, 'user' => $user, 'project' => $project]);
 
     }
 
@@ -70,7 +72,7 @@ class TaskController extends Controller
         ]);
         $task = Task::findOrFail($id);
 
-        $task->service = $request->input('task');
+        $task->task = $request->input('task');
         $task->user_id = $request->input('user_id');
         $task->project_id = $request->input('project_id');
         $task->start_date = $request->input('start_date');

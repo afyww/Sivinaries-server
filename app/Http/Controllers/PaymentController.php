@@ -53,8 +53,9 @@ class PaymentController extends Controller
     public function edit($id)
     {
         $payment = Payment::find($id);
+        $project = Project::all();
 
-        return view('editpayment', ['payment' => $payment]);
+        return view('editpayment', ['payment' => $payment, 'project' => $project]);
     }
 
     public function update(Request $request, $id)

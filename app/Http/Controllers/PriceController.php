@@ -48,8 +48,10 @@ class PriceController extends Controller
     public function edit($id)
     {
         $price = Price::find($id);
+        $user = User::all();
+        $project = Project::all();
 
-        return view('editprice', ['price' => $price]);
+        return view('editprice', ['price' => $price, 'user' => $user, 'project' => $project]);
 
     }
 

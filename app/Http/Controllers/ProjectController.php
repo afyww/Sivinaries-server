@@ -24,7 +24,6 @@ class ProjectController extends Controller
         $request->validate([
             'project' => 'required',
             'name' => 'required',
-            'price' => 'nullable',
             'start_date' => 'required',
             'end_date' => 'required',
             'status' => 'required',
@@ -33,7 +32,6 @@ class ProjectController extends Controller
         $data = [
             'project' => $request->input('project'),
             'name' => $request->input('name'),
-            'price' => $request->input('price'),
             'start_date' => $request->input('start_date'),
             'end_date' => $request->input('end_date'),
             'status' => $request->input('status'),
@@ -56,7 +54,6 @@ class ProjectController extends Controller
         $request->validate([
             'project' => 'required',
             'name' => 'required',
-            'price' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
             'status' => 'required',
@@ -66,7 +63,6 @@ class ProjectController extends Controller
 
         $project->project = $request->input('project');
         $project->name = $request->input('name');
-        $project->price = $request->input('price');
         $project->start_date = $request->input('start_date');
         $project->end_date = $request->input('end_date');
         $project->status = $request->input('status');

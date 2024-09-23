@@ -45,7 +45,7 @@
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $item->payment }}</td>
                                         <td>{{ $item->project->project }}</td>
-                                        <td>{{ $item->price }}</td>
+                                        <td>Rp. {{ number_format($item->price, 0, ',', '.') }}</td>
                                         <td>
                                             <img src="{{ asset('storage/prove/' . basename($item->prove)) }}"
                                             alt="Prove Image"

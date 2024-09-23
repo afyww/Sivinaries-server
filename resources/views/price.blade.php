@@ -46,7 +46,7 @@
                                         <td>{{ $item->service }}</td>
                                         <td>{{ $item->user->name }}</td>
                                         <td>{{ $item->project->project }}</td>
-                                        <td>{{ $item->price }}</td>
+                                        <td>Rp. {{ number_format($item->price, 0, ',', '.') }}</td>
                                         <td class="flex gap-2">
                                             <div class="w-full">
                                                 <a href="{{ route('editprice', ['id' => $item->id]) }}">

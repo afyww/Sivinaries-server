@@ -29,63 +29,53 @@
                             <div>
                                 <div class="p-2">
                                     <div class="overflow-auto">
-                                        <table id="Tableproject" class="bg-gray-50 border-2">
+                                        <table id="ProjectTable" class="bg-gray-50 border-2">
                                             <thead class="w-full">
                                                 <th>No</th>
-                                                <th>Date</th>
-                                                <th>Nama Project</th>
-                                                <th>Img 1</th>
-                                                <th>Img 2</th>
-                                                <th>Img 3</th>
-                                                <th>Video</th>
+                                                <th>Project</th>
+                                                <th>Name</th>
+                                                <th>Start Date</th>
+                                                <th>End Date</th>
+                                                <th>Price</th>
+                                                <th>Payment</th>
+                                                <th>Status</th>
                                                 <th>Action</th>
                                             </thead>
                                             <tbody>
                                                 @php
                                                     $no = 1;
                                                 @endphp
-                                                @foreach ($projectResults as $project)
+                                                @foreach ($projectResults as $item)
                                                     <tr class="border-2">
                                                         <td>{{ $no++ }}</td>
-                                                        <td>{{ $project->created_at }}</td>
-                                                        <td>{{ $project->project }}</td>
-                                                        <td>
-                                                            <img class="h-fit mx-auto w-32"
-                                                                src="{{ asset('storage/img/' . basename($project->img1)) }}">
+                                                        <td>{{ $item->project }}</td>
+                                                        <td>{{ $item->name }}</td>
+                                                        <td>{{ $item->start_date }}</td>
+                                                        <td>{{ $item->end_date }}</td>
+                                                        <td>Rp. {{ number_format($item->total_prices, 0, ',', '.') }}
                                                         </td>
-                                                        <td>
-                                                            <img class="h-fit mx-auto w-32"
-                                                                src="{{ asset('storage/img/' . basename($project->img2)) }}">
+                                                        <td>Rp. {{ number_format($item->total_payments, 0, ',', '.') }}
                                                         </td>
-                                                        <td>
-                                                            <img class="h-fit mx-auto w-32"
-                                                                src="{{ asset('storage/img/' . basename($project->img3)) }}">
-                                                        </td>
-                                                        <td>
-                                                            <video class="h-fit mx-auto" width="320" controls>
-                                                                <source
-                                                                    src="{{ asset('storage/videos/' . basename($project->video)) }}"
-                                                                    type="video/mp4">
-                                                                Your browser does not support the video tag.
-                                                            </video>
-                                                        </td>
-                                                        <td class="flex gap-2 my-16">
-                                                            <a
-                                                                href="{{ route('editproject', ['id' => $project->id]) }}">
-                                                                <h1
-                                                                    class="p-2 px-10 w-fit text-white hover:text-black bg-blue-500 rounded-xl text-center">
-                                                                    Edit</h1>
-                                                            </a>
-                                                            @if (auth()->user()->level == 'admin')
+                                                        <td>{{ $item->status }}</td>
+                                                        <td class="flex gap-2">
+                                                            <div class="w-full">
+                                                                <a
+                                                                    href="{{ route('editproject', ['id' => $item->id]) }}">
+                                                                    <h1
+                                                                        class="p-2 text-white hover:text-black bg-blue-500 rounded-xl text-center">
+                                                                        Edit</h1>
+                                                                </a>
+                                                            </div>
+                                                            <div class="w-full">
                                                                 <form
-                                                                    class="p-1 px-10 w-fit text-white hover:text-black bg-red-500 rounded-xl text-center"
+                                                                    class="p-2 text-white hover:text-black bg-red-500 rounded-xl text-center"
                                                                     method="post"
-                                                                    action="{{ route('destroyproject', ['id' => $project->id]) }}">
+                                                                    action="{{ route('destroyproject', ['id' => $item->id]) }}">
                                                                     @csrf
                                                                     @method('delete')
                                                                     <button type="submit">Delete</button>
                                                                 </form>
-                                                            @endif
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -97,52 +87,50 @@
                         </div>
                         <div class="space-y-2">
                             <div>
-                                <h1 class="font-extrabold text-3xl">Post</h1>
+                                <h1 class="font-extrabold text-3xl">Price</h1>
                             </div>
                             <div>
                                 <div class="p-2">
                                     <div class="overflow-auto">
-                                        <table id="Tablepost" class="bg-gray-50 border-2">
+                                        <table id="PriceTable" class="bg-gray-50 border-2">
                                             <thead class="w-full">
                                                 <th>No</th>
-                                                <th>Date</th>
-                                                <th>Judul</th>
-                                                <th>Gambar</th>
-                                                <th>Author</th>
-                                                <th>Category</th>
+                                                <th>Service</th>
+                                                <th>User</th>
+                                                <th>Project</th>
+                                                <th>Price</th>
                                                 <th>Action</th>
                                             </thead>
                                             <tbody>
                                                 @php
                                                     $no = 1;
                                                 @endphp
-                                                @foreach ($postResults as $post)
+                                                @foreach ($priceResults as $item)
                                                     <tr class="border-2">
                                                         <td>{{ $no++ }}</td>
-                                                        <td>{{ $post->published_at }}</td>
-                                                        <td>{{ $post->judul }}</td>
-                                                        <td>
-                                                            <img class="h-fit mx-auto w-32"
-                                                                src="{{ asset('storage/img/' . basename($post->img)) }}">
-                                                        </td>
-                                                        <td>{{ $post->user->name }}</td>
-                                                        <td>{{ $post->categories->category }}</td>
-                                                        <td class="flex gap-2 my-16">
-                                                            <a href="{{ route('editpost', ['id' => $post->id]) }}">
-                                                                <h1
-                                                                    class="p-2 px-10 w-fit text-white hover:text-black bg-blue-500 rounded-xl text-center">
-                                                                    Edit</h1>
-                                                            </a>
-                                                            @if (auth()->user()->level == 'admin')
+                                                        <td>{{ $item->service }}</td>
+                                                        <td>{{ $item->user->name }}</td>
+                                                        <td>{{ $item->project->project }}</td>
+                                                        <td>Rp. {{ number_format($item->price, 0, ',', '.') }}</td>
+                                                        <td class="flex gap-2">
+                                                            <div class="w-full">
+                                                                <a
+                                                                    href="{{ route('editprice', ['id' => $item->id]) }}">
+                                                                    <h1
+                                                                        class="p-2 text-white hover:text-black bg-blue-500 rounded-xl text-center">
+                                                                        Edit</h1>
+                                                                </a>
+                                                            </div>
+                                                            <div class="w-full">
                                                                 <form
-                                                                    class="p-1 px-10 w-fit text-white hover:text-black bg-red-500 rounded-xl text-center"
+                                                                    class="p-2 text-white hover:text-black bg-red-500 rounded-xl text-center"
                                                                     method="post"
-                                                                    action="{{ route('destroypost', ['id' => $post->id]) }}">
+                                                                    action="{{ route('destroyprice', ['id' => $item->id]) }}">
                                                                     @csrf
                                                                     @method('delete')
                                                                     <button type="submit">Delete</button>
                                                                 </form>
-                                                            @endif
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -152,43 +140,55 @@
                                 </div>
                             </div>
                         </div>
-                        @if (auth()->user()->level == 'admin')
                         <div class="space-y-2">
                             <div>
-                                <h1 class="font-extrabold text-3xl">User</h1>
+                                <h1 class="font-extrabold text-3xl">Task</h1>
                             </div>
                             <div>
                                 <div class="p-2">
                                     <div class="overflow-auto">
-                                        <table id="Tableuser" class="bg-gray-50 border-2">
+                                        <table id="TaskTable" class="bg-gray-50 border-2">
                                             <thead class="w-full">
                                                 <th>No</th>
-                                                <th>Date</th>
-                                                <th>Nama</th>
-                                                <th>Level</th>
-                                                <th>Email</th>
+                                                <th>Task</th>
+                                                <th>User</th>
+                                                <th>Project</th>
+                                                <th>Start Date</th>
+                                                <th>End Date</th>
+                                                <th>Status</th>
                                                 <th>Action</th>
                                             </thead>
                                             <tbody>
                                                 @php
                                                     $no = 1;
                                                 @endphp
-                                                @foreach ($userResults as $user)
+                                                @foreach ($taskResults as $item)
                                                     <tr class="border-2">
                                                         <td>{{ $no++ }}</td>
-                                                        <td>{{ $user->created_at }}</td>
-                                                        <td>{{ $user->name }}</td>
-                                                        <td>{{ $user->level }}</td>
-                                                        <td>{{ $user->email }}</td>
-                                                        <td class="">
-                                                            <form
-                                                                class="p-1 w-full text-white hover:text-black bg-red-500 rounded-xl text-center"
-                                                                method="post"
-                                                                action="{{ route('destroyuser', ['id' => $user->id]) }}">
-                                                                @csrf
-                                                                @method('delete')
-                                                                <button type="submit">Delete</button>
-                                                            </form>
+                                                        <td>{{ $item->task }}</td>
+                                                        <td>{{ $item->user->name }}</td>
+                                                        <td>{{ $item->project->project }}</td>
+                                                        <td>{{ $item->start_date }}</td>
+                                                        <td>{{ $item->end_date }}</td>
+                                                        <td>{{ $item->status }}</td>
+                                                        <td class="flex gap-2">
+                                                            <div class="w-full">
+                                                                <a href="{{ route('edittask', ['id' => $item->id]) }}">
+                                                                    <h1
+                                                                        class="p-2 text-white hover:text-black bg-blue-500 rounded-xl text-center">
+                                                                        Edit</h1>
+                                                                </a>
+                                                            </div>
+                                                            <div class="w-full">
+                                                                <form
+                                                                    class="p-2 text-white hover:text-black bg-red-500 rounded-xl text-center"
+                                                                    method="post"
+                                                                    action="{{ route('destroytask', ['id' => $item->id]) }}">
+                                                                    @csrf
+                                                                    @method('delete')
+                                                                    <button type="submit">Delete</button>
+                                                                </form>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -198,7 +198,66 @@
                                 </div>
                             </div>
                         </div>
-                        @endif
+                        <div class="space-y-2">
+                            <div>
+                                <h1 class="font-extrabold text-3xl">Payment</h1>
+                            </div>
+                            <div>
+                                <div class="p-2">
+                                    <div class="overflow-auto">
+                                        <table id="PaymentTable" class="bg-gray-50 border-2">
+                                            <thead class="w-full">
+                                                <th>No</th>
+                                                <th>Name</th>
+                                                <th>Project</th>
+                                                <th>Price</th>
+                                                <th>Prove</th>
+                                                <th>Action</th>
+                                            </thead>
+                                            <tbody>
+                                                @php
+                                                    $no = 1;
+                                                @endphp
+                                                @foreach ($paymentResults as $item)
+                                                    <tr class="border-2">
+                                                        <td>{{ $no++ }}</td>
+                                                        <td>{{ $item->payment }}</td>
+                                                        <td>{{ $item->project->project }}</td>
+                                                        <td>Rp. {{ number_format($item->price, 0, ',', '.') }}</td>
+                                                        <td>
+                                                            <img src="{{ asset('storage/prove/' . basename($item->prove)) }}"
+                                                                alt="Prove Image"
+                                                                class='mx-auto my-auto w-44 h-28 rounded-xl relative' />
+                                                        </td>
+                                                        </td>
+                                                        <td class="flex gap-2">
+                                                            <div class="w-full">
+                                                                <a
+                                                                    href="{{ route('editpayment', ['id' => $item->id]) }}">
+                                                                    <h1
+                                                                        class="p-2 text-white hover:text-black bg-blue-500 rounded-xl text-center">
+                                                                        Edit</h1>
+                                                                </a>
+                                                            </div>
+                                                            <div class="w-full">
+                                                                <form
+                                                                    class="p-2 text-white hover:text-black bg-red-500 rounded-xl text-center"
+                                                                    method="post"
+                                                                    action="{{ route('destroypayment', ['id' => $item->id]) }}">
+                                                                    @csrf
+                                                                    @method('delete')
+                                                                    <button type="submit">Delete</button>
+                                                                </form>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -208,41 +267,17 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="//cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
     <script>
-        $(document).ready(function() {
-            let table = new DataTable('#Tablepost', {
-                columnDefs: [{
-                    targets: 1, // Index of the 'Date' column
-                    render: function(data, type, row) {
-                        // Assuming the date is in 'YYYY-MM-DD HH:MM:SS' format
-                        var date = new Date(data);
-                        return date.toLocaleDateString(); // Format the date as needed
-                    },
-                }, ],
-            });
+         $(document).ready(function() {
+            let table = new DataTable('#ProjectTable', {});
         });
-        $(document).ready(function() {
-            let table = new DataTable('#Tableproject', {
-                columnDefs: [{
-                    targets: 1, // Index of the 'Date' column
-                    render: function(data, type, row) {
-                        // Assuming the date is in 'YYYY-MM-DD HH:MM:SS' format
-                        var date = new Date(data);
-                        return date.toLocaleDateString(); // Format the date as needed
-                    },
-                }, ],
-            });
+         $(document).ready(function() {
+            let table = new DataTable('#PriceTable', {});
         });
-        $(document).ready(function() {
-            let table = new DataTable('#Tableuser', {
-                columnDefs: [{
-                    targets: 1, // Index of the 'Date' column
-                    render: function(data, type, row) {
-                        // Assuming the date is in 'YYYY-MM-DD HH:MM:SS' format
-                        var date = new Date(data);
-                        return date.toLocaleDateString(); // Format the date as needed
-                    },
-                }, ],
-            });
+         $(document).ready(function() {
+            let table = new DataTable('#TaskTable', {});
+        });
+         $(document).ready(function() {
+            let table = new DataTable('#PaymentTable', {});
         });
     </script>
 

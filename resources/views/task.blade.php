@@ -53,7 +53,7 @@
                                         <td>{{ $item->status }}</td>
                                         <td class="flex gap-2">
                                             <div class="w-full">
-                                                <a href="{{ route('editprice', ['id' => $item->id]) }}">
+                                                <a href="{{ route('edittask', ['id' => $item->id]) }}">
                                                     <h1
                                                         class="p-2 text-white hover:text-black bg-blue-500 rounded-xl text-center">
                                                         Edit</h1>
@@ -62,7 +62,7 @@
                                             <div class="w-full">
                                                 <form
                                                     class="p-2 text-white hover:text-black bg-red-500 rounded-xl text-center"
-                                                    method="post" action="{{ route('destroyprice', ['id' => $item->id]) }}">
+                                                    method="post" action="{{ route('destroytask', ['id' => $item->id]) }}">
                                                     @csrf
                                                     @method('delete')
                                                     <button type="submit">Delete</button>

@@ -50,8 +50,8 @@
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->start_date }}</td>
                                         <td>{{ $item->end_date }}</td>
-                                        <td>{{ $item->total_prices }}</td> 
-                                        <td>{{ $item->total_payments }}</td> 
+                                        <td>Rp. {{ number_format($item->total_prices, 0, ',', '.') }}</td> 
+                                        <td>Rp. {{ number_format($item->total_payments, 0, ',', '.') }}</td> 
                                         <td>{{ $item->status }}</td>
                                         <td class="flex gap-2">
                                             <div class="w-full">

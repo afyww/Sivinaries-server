@@ -25,43 +25,47 @@
                         enctype="multipart/form-data">
                         @csrf
                         @method('post')
-                        <div class="space-y-2">
-                            <label class="font-semibold text-black">Nama:</label>
-                            <input type="text"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                id="name" name="name" placeholder="Nama" required>
+                        <div class="grid xl:grid-cols-2 gap-4 grid-cols-1">
+                            <div class="space-y-2">
+                                <label class="font-semibold text-black">Nama:</label>
+                                <input type="text"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
+                                    id="name" name="name" placeholder="Nama" required>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="font-semibold text-black">Email:</label>
+                                <input type="email"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
+                                    id="email" name="email" placeholder="Email" required>
+                            </div>
                         </div>
-                        <div class="space-y-2">
-                            <label class="font-semibold text-black">Email:</label>
-                            <input type="email"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                id="email" name="email" placeholder="Email" required>
-                        </div>
-                        <div class="space-y-2">
-                            <label class="font-semibold text-black">Password:</label>
-                            <input type="password"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                id="password" name="password" placeholder="Password" required>
-                        </div>
-                        <div class="space-y-2">
-                            <label class="font-semibold text-black">Password Confirmation:</label>
-                            <input type="password"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                id="password" name="password_confirmation" placeholder="Password Confirmation" required>
-                        </div>
-                        <div class="space-y-2">
-                            <label class="font-semibold text-black">Level:</label>
-                            <select
-                                class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full"
-                                id="level" name="level" required>
-                                <option value="admin">Admin</option>
-                                <option value="writer">Writer</option>
-                                </select>
-                        </div>
-                        <button type="submit" class="bg-blue-500  text-white p-2 w-fit hover:text-black rounded-lg">Submit</button>
-                    </form>
+                <div class="grid xl:grid-cols-2 gap-4 grid-cols-1">
+                    <div class="space-y-2">
+                        <label class="font-semibold text-black">Password:</label>
+                        <input type="password"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full" id="password"
+                            name="password" placeholder="Password" required>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-semibold text-black">Password Confirmation:</label>
+                        <input type="password"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full" id="password"
+                            name="password_confirmation" placeholder="Password Confirmation" required>
+                    </div>
                 </div>
+                <div class="space-y-2">
+                    <label class="font-semibold text-black">Level:</label>
+                    <select class="bg-gray-50 border border-gray-300 text-gray-900 p-2 rounded-lg w-full" id="level"
+                        name="level" required>
+                        <option value="admin">Admin</option>
+                        <option value="writer">Writer</option>
+                    </select>
+                </div>
+                <button type="submit"
+                    class="bg-blue-500  text-white p-2 w-fit hover:text-black rounded-lg">Submit</button>
+                </form>
             </div>
+        </div>
         </div>
     </main>
 </body>
